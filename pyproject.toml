@@ -7,10 +7,12 @@ authors = [
     { name = "KubotaHidetoshi", email = "hidetoshi0601@icloud.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "typer>=0.16.0",
+]
 
 [project.scripts]
-zm07 = "zm07:main"
+zm07 = "zm07.main:app"
 
 [build-system]
 requires = ["hatchling"]
