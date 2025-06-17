@@ -30,3 +30,15 @@ def gcd(x: int, y: int):
     """
     typer.echo(mathtools.gcd(x, y))
 
+
+@app.command()
+def high(m,n):
+    "大きい数字"
+    if m<n:
+        m=n
+    return m
+
+@app.command()
+def average(m,n):
+    "平均"
+    return (m+n)/2
