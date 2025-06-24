@@ -42,3 +42,8 @@ def high(m,n):
 def average(m,n):
     "平均"
     return (m+n)/2
+
+@app.command()
+def lcm(x:int,y:int):
+    """最小公倍数"""
+    typer.echo(mathtools.lcm(x,y))
