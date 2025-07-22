@@ -4,6 +4,13 @@ import typer
 
 from zm07 import mathtools
 
+from . import demo
+from . import rain
+
+
+import re
+from datetime import datetime
+
 app = typer.Typer()
 
 
@@ -19,7 +26,7 @@ def now():
     """
     Show local date and time
     """
-    today = datetime.datetime.today()
+    today = datetime.today()
     typer.echo(today.strftime('%A, %B %d, %Y'))
 
 
@@ -47,3 +54,21 @@ def average(m,n):
 def lcm(x:int,y:int):
     """最小公倍数"""
     typer.echo(mathtools.lcm(x,y))
+
+
+@app.command()
+def hello(name: str = "Hidetoshi"):
+    typer.echo(demo.hello(name))
+
+@app.command()
+def get_rain_probability():
+    """降水確率"""
+    prob = rain.get_rain_probability()
+    
+    if prob is None:
+        typer.echo("取得失敗")
+        return
+    
+    typer.echo(f"{prob}%")
+
+
